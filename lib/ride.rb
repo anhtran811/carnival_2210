@@ -4,7 +4,7 @@ class Ride
               :admission_fee,
               :excitement,
               :total_revenue,
-              :boarded
+              :rider_log
 
   def initialize(ride)
     @name = ride[:name]
@@ -12,15 +12,20 @@ class Ride
     @admission_fee = ride[:admission_fee]
     @excitement = ride[:excitement]
     @total_revenue = 0
-    @boarded = []
+    @rider_log = {}
   end
 
   def board_rider(visitor)
-    @boarded << visitor
-    @boarded.uniq
+    if @rider_log[visitor].nil? 
+      @rider_log[visitor] = 1 
+    else
+      @rider_log[visitor] += 1
+    end
   end
 
-  def rider_log
-
+  def total_revenue
+    require 'pry'; binding.pry
+    @rider_log
   end
+
 end

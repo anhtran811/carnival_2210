@@ -3,13 +3,12 @@ class Visitor
               :height,
               :spending_money,
               :preferences,
-              :tall_enough,
-              :total_revenue
+              :tall_enough
 
   def initialize(name, height, spending_money)
     @name = name
     @height = height
-    @spending_money = spending_money.delete('$')
+    @spending_money = spending_money.delete('$').to_i
     @preferences = []
   end
 
@@ -23,5 +22,9 @@ class Visitor
     else
       false
     end
+  end
+
+  def pay_for_ride(admission)
+    @spending_money -= admission
   end
 end
