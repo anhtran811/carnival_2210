@@ -44,22 +44,21 @@ RSpec.describe Ride do
     visitor2.add_preference(:gentle)
 
     ride1.board_rider(visitor1)
-    ride1.board_rider(visitor2)
     ride1.board_rider(visitor1)
+    ride1.board_rider(visitor2)
 
-    expect(visitor1.spending_money).to eq(8)
-    expect(visitor2.spending_money).to eq(4)
+    expect(ride1.rider_log).to eq({
+      visitor1 => 2,
+      visitor2 => 1
+      })
+
+    visitor2.pay_for_ride(1)
+    visitor1.pay_for_ride(2)
 
     expect(ride1.total_revenue).to eq(3)
   end
 end
 
-
-#  visitor1.spending_money
-# #=> 8
-
-#  visitor2.spending_money
-# #=> 4
 
 #  ride1.total_revenue
 # #=> 3

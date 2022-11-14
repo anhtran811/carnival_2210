@@ -24,8 +24,7 @@ class Ride
   end
 
   def total_revenue
-    require 'pry'; binding.pry
-    @rider_log
+    @total_revenue += @admission_fee
   end
 
 end
