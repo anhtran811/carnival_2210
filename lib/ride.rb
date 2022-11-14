@@ -21,10 +21,7 @@ class Ride
     else
       @rider_log[visitor] += 1
     end
-  end
-
-  def total_revenue
     @total_revenue += @admission_fee
+    
   end
-
 end
