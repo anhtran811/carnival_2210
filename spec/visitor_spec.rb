@@ -23,27 +23,10 @@ RSpec.describe Visitor do
     expect(visitor1.preferences).to eq([:gentle, :water])
   end
 
-  xit 'can be tall enough' do
+  it 'can be tall enough' do
     expect(visitor1.tall_enough?(54)).to be(true)
-
     expect(visitor2.tall_enough?(54)).to be(false)
-
     expect(visitor3.tall_enough?(54)).to be(true)
-
     expect(visitor1.tall_enough?(64)).to be(false)
   end
 end
-
-
-
-#  visitor1.tall_enough?(54)
-#=> true
-
-#  visitor2.tall_enough?(54)
-#=> false
-
-#  visitor3.tall_enough?(54)
-#=> true
-
-#  visitor1.tall_enough?(64)
-#=> false
